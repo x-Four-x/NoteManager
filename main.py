@@ -109,7 +109,7 @@ def main():
 
         option_actions.get(
             int(option),
-            print('\nТакого варианта нет!\n')
+            lambda: print('\nТакого варианта нет!\n')
         )()  # Вызов конкретной функции
 
 
