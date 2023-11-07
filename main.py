@@ -4,6 +4,8 @@ from utils_db import (create_note, create_table, delete_note, get_all_notes,
 
 
 def _create_note():
+    """Функция для создания заметки"""
+  
     title = input('Введите заголовок заметки: ')
     description = input('Введите описание заметки: ')
 
@@ -16,11 +18,14 @@ def _create_note():
 
 
 def _get_all_notes():
+    """Функция для получения конкретной заметки по ID"""
+
     for i, note in enumerate(get_all_notes()):
         print(f'#{i + 1} | {note.title}')
 
 
 def _delete_note():
+    """Функция для удаления заметки по ID"""
     notes = get_all_notes()
 
     for i, note in enumerate(notes):
@@ -44,6 +49,7 @@ def _delete_note():
 
 
 def _get_note():
+    """Функция для получения заметки по ее ID"""
     notes = get_all_notes()
 
     for i, note in enumerate(notes):
@@ -70,6 +76,8 @@ def _get_note():
 
 
 def _find_notes():
+    """Функция для поиска заметки"""
+
     search_value = input('Введите слово или фразу по которой нужно найти заметки: ')
     notes = get_all_notes().where(Note.title.contains(search_value))  # Поиск заметки по фразе/слову
 
@@ -84,6 +92,10 @@ def _find_notes():
 
 
 def main():
+    """
+    Главная функция в коде, запускает бесконечный цикл, с выбором действий с заметками 
+    """
+
     while True:
         print(
             'Что будем делать?\n'
